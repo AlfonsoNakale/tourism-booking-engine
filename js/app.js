@@ -6,6 +6,9 @@ import { initializeExtras } from "./modules/extras";
 import { initializeCurrencyToggle } from "./modules/currency";
 import { calculateTotals } from "./modules/calculations";
 
+// Import flatpickr if using modules
+import flatpickr from "flatpickr";
+
 window.Webflow ||= [];
 window.Webflow.push(() => {
   // Initialize form handling

@@ -1,35 +1,37 @@
-export const initializeDatePickers = () => {
-  const pickupDate = document.querySelector("#i-pickup-date");
-  const returnDate = document.querySelector("#i-return-date");
+import flatpickr from "flatpickr";
+import { updateDateDisplay } from "./displayCalculations";
 
-  // Add date change listeners
-  [pickupDate, returnDate].forEach((dateInput) => {
-    dateInput?.addEventListener("change", () => {
-      updateDates();
-      calculateTotals();
-    });
-  });
-};
+export function initializeDatePickers() {
+  // Pickup and Return Date Configuration
+  const pickupDateConfig = {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today",
+    time_24hr: true,
+    minuteIncrement: 30,
+    onChange: updateDateDisplay,
+  };
 
-// Update dates display
-export const updateDates = () => {
-  const pickupDate = document.querySelector("#i-pickup-date").value;
-  const returnDate = document.querySelector("#i-return-date").value;
+  // Initialize pickup and return date pickers
+  flatpickr("#i-pickup-date", pickupDateConfig);
+  flatpickr("#i-return-date", pickupDateConfig);
 
-  document.querySelector("#v-pickup-date").textContent = pickupDate || "-";
-  document.querySelector("#v-return-date").textContent = returnDate || "-";
+  // Date of Birth Configuration
+  const dobConfig = {
+    dateFormat: "Y-m-d",
+    maxDate: new Date(),
+    yearRange: [1900, new Date().getFullYear()],
+  };
 
-  // Calculate and display duration
-  if (pickupDate && returnDate) {
-    const duration = calculateDuration(pickupDate, returnDate);
-    document.querySelector("#v-calc-duration").textContent = duration;
-  }
-};
+  // Initialize date of birth picker
+  flatpickr("#i-date-of-birth", dobConfig);
 
-// Calculate duration between dates
-export const calculateDuration = (pickup, return_) => {
-  const start = new Date(pickup);
-  const end = new Date(return_);
-  const diffTime = Math.abs(end - start);
-  return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-};
+  // Expiration Date Configuration
+  const expirationConfig = {
+    dateFormat: "Y-m-d",
+    minDate: "today",
+  };
+
+  // Initialize expiration date picker
+  flatpickr("#i-expiration-date", expirationConfig);
+}
