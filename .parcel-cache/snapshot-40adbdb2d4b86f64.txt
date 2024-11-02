@@ -1,12 +1,12 @@
-5854
+5860
 101C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\lmdb\dependencies\v8133750464653132079 1
 130C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\Makefile133750464640680904 0
-72C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\dist133750475442465792 1
+72C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\dist133750485599969117 1
 104C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\weak-lru-cache\index.js133750464634354554 0
 119C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\lmdb\node_modules\node-addon-api\tools133750464642345736 1
 99C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\.package-lock.json133750464686157466 0
 89C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\msgpackr133750464647986457 1
-79C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\dist\app.js133750475442395759 0
+79C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\dist\app.js133750485599879615 0
 130C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\core\test\fixtures\custom-targets-distdir133750464655753586 1
 124C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\core\src\TargetDescriptor.schema.js133750464654706110 0
 109C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\source-map\lib\quick-sort.js133750464638785923 0
@@ -26,7 +26,7 @@
 130C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\module.h133750464653012090 0
 148C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\tokenizer\const.js133750464641779234 0
 105C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\safe-buffer\package.json133750464633987325 0
-83C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\dist\app.js.map133750475442450531 0
+83C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\dist\app.js.map133750485599946542 0
 110C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@swc\helpers\scripts\utils.js133750464660109846 0
 112C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\csso\node_modules\css-tree\data133750464657587479 1
 134C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@swc\helpers\src\_object_without_properties_loose.mjs133750464661511996 0
@@ -48,7 +48,7 @@
 99C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\node-releases\data133750464635644059 1
 112C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@swc\helpers\cjs\_using_ctx.cjs133750464657105309 0
 125C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\entities\lib\generated\decode-data-html.d.ts133750464642531191 0
-70C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js133750462906283696 1
+70C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js133750484955636063 1
 126C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@swc\helpers\src\_class_private_field_get.mjs133750464660589681 0
 115C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\core\lib\RequestTracker.js133750464653771148 0
 125C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\optimizer-htmlnano\node_modules\.bin133750464674520164 1
@@ -103,7 +103,7 @@
 121C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\csso\node_modules\mdn-data\l10n\index.js133750464636394123 0
 123C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\caniuse-lite\data\features\css-any-link.js133750464653406442 0
 129C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@swc\helpers\cjs\_object_destructuring_empty.cjs133750464656337501 0
-80C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\package.json133750466122250971 0
+80C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\package.json133750485598208295 0
 126C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\caniuse-lite\data\features\media-fragments.js133750464664371371 0
 113C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\events\src\Disposable.js133750464634470024 0
 108C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\htmlnano\docs\versions.json133750464647158683 0
@@ -4782,6 +4782,7 @@
 119C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\utils\src\isDirectoryInside.js133750464647305070 0
 116C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\utils\src\parseCSSImport.js133750464647816304 0
 114C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\utils\src\prettifyTime.js133750464647996379 0
+90C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js\modules\currency.js133750485532644000 0
 118C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\utils\src\progress-message.js133750464648255004 0
 114C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\utils\src\PromiseQueue.js133750464648376701 0
 125C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\utils\src\replaceBundleReferences.js133750464648732496 0
@@ -5844,7 +5845,7 @@
 94C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\.bin\svgo.ps1133750464674642013 0
 108C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\.bin\update-browserslist-db133750464674642013 0
 112C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\.bin\update-browserslist-db.cmd133750464674652014 0
-77C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js\app.js133750475441849091 0
+77C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js\app.js133750485575977457 0
 126C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\images\bmw-118i-m-sport-similar-49-350-20230418-1139-1.png133750383587253528 0
 131C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\images\merc-gle-similar-20-350-20230815-1126-1-p-130x130q80.png133750383586630854 0
 121C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\images\toyota-agya-similar-32-350-20230811-0655-1.png133750383586930817 0
@@ -5853,3 +5854,8 @@
 122C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\images\toyota-urban-cruiser-45-350-20230815-1059-1.png133750383587096816 0
 86C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\images\webclip.png133750383588300463 0
 104C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\css\car-rental-component.webflow.css133750383585370077 0
+78C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js\modules133750485442147332 1
+93C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js\modules\datePickers.js133750485532488123 0
+98C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js\modules\vehicleSelection.js133750485111945066 0
+88C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js\modules\extras.js133750485532488123 0
+94C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\js\modules\calculations.js133750485532208220 0
