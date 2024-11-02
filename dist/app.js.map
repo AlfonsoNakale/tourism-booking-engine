@@ -1,0 +1,1 @@
+{"mappings":"AAAA;AAEA,OAAO,OAAO,KAAK,EAAE;AACrB,OAAO,OAAO,CAAC,IAAI,CAAC;IAClB,MAAM;AACR","sources":["js/app.js"],"sourcesContent":["\"use strict\";\r\n\r\nwindow.Webflow ||= [];\r\nwindow.Webflow.push(() => {\r\n  alert(\"hello world\");\r\n});\r\n"],"names":[],"version":3,"file":"app.js.map"}
