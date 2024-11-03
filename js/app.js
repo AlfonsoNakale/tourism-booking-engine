@@ -5,6 +5,7 @@ import { initializeVehicleSelection } from "./modules/vehicleSelection";
 import { initializeExtras } from "./modules/extras";
 import { initializeCurrencyToggle } from "./modules/currency";
 import { calculateTotals } from "./modules/calculations";
+import { populateCountrySelect } from "./modules/apiChoice";
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
@@ -16,7 +17,10 @@ window.Webflow.push(() => {
       // Show loading state
       form.classList.add("loading");
 
-      // Initialize all modules
+      // Initialize country select first
+      await populateCountrySelect();
+
+      // Initialize all other modules
       await Promise.all([
         initializeDatePickers(),
         initializeVehicleSelection(),

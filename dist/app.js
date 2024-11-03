@@ -346,12 +346,8 @@ const $4022becebb3b2c38$export$59c6c80ce1ce5175 = ()=>{
 };
 const $4022becebb3b2c38$export$891ee78cbb4591cc = ()=>{
     $4022becebb3b2c38$var$EXTRAS.forEach((extra)=>{
-        if (!extra.isValid()) {
-            console.warn(`Invalid extra configuration for ${extra.name}`);
-            return;
-        }
+        if (!extra.isValid()) return;
         const elements = extra.getElements();
-        // Initialize checkbox handler
         elements.checkbox.addEventListener("change", ()=>{
             if (elements.checkbox.checked) {
                 elements.quantity.value = elements.quantity.value || "1";
@@ -359,11 +355,10 @@ const $4022becebb3b2c38$export$891ee78cbb4591cc = ()=>{
             } else {
                 elements.quantity.value = "";
                 elements.display.textContent = "-";
-                $4022becebb3b2c38$var$updateExtrasTotal(); // Update total when unchecking
+                $4022becebb3b2c38$var$updateExtrasTotal();
             }
             (0, $cda92668d1726448$export$866c2f476e8577f3)();
         });
-        // Initialize quantity handler
         elements.quantity.addEventListener("change", ()=>{
             if (elements.checkbox.checked) {
                 $4022becebb3b2c38$var$updateExtraCalculation(extra.id);
@@ -371,7 +366,6 @@ const $4022becebb3b2c38$export$891ee78cbb4591cc = ()=>{
             }
         });
     });
-    // Initialize total display
     $4022becebb3b2c38$var$updateExtrasTotal();
 };
 const $4022becebb3b2c38$export$9be100641a4625a5 = (extraName)=>{
@@ -395,14 +389,10 @@ const $cda92668d1726448$var$SELECTORS = {
 const $cda92668d1726448$var$getNumericValue = (selector, defaultValue = 0, parseFunc = parseFloat)=>{
     try {
         const element = document.querySelector(selector);
-        if (!element) {
-            console.warn(`Element not found: ${selector}`);
-            return defaultValue;
-        }
+        if (!element) return defaultValue;
         const value = parseFunc(element?.textContent || defaultValue);
         return isNaN(value) ? defaultValue : value;
     } catch (error) {
-        console.error(`Error getting value from ${selector}:`, error);
         return defaultValue;
     }
 };
@@ -410,13 +400,9 @@ const $cda92668d1726448$var$getNumericValue = (selector, defaultValue = 0, parse
 const $cda92668d1726448$var$updateElement = (selector, value)=>{
     try {
         const element = document.querySelector(selector);
-        if (element) {
-            const formattedValue = value.toFixed(2);
-            element.textContent = formattedValue;
-            console.log(`Updated ${selector}:`, formattedValue);
-        } else console.warn(`Element not found: ${selector}`);
+        if (element) element.textContent = value.toFixed(2);
     } catch (error) {
-        console.error(`Error updating ${selector}:`, error);
+    // Silent error handling
     }
 };
 const $cda92668d1726448$export$866c2f476e8577f3 = ()=>{
@@ -427,27 +413,15 @@ const $cda92668d1726448$export$866c2f476e8577f3 = ()=>{
             duration: $cda92668d1726448$var$getNumericValue($cda92668d1726448$var$SELECTORS.duration, 0, parseInt),
             deliveryFee: $cda92668d1726448$var$getNumericValue($cda92668d1726448$var$SELECTORS.deliveryFee)
         };
-        console.log("Base Values:", baseValues);
         // Calculate components
         const calculations = {
             extrasTotal: (0, $4022becebb3b2c38$export$59c6c80ce1ce5175)(),
             vehicleCost: baseValues.vehiclePrice * baseValues.duration
         };
-        console.log("Initial Calculations:", calculations);
         // Calculate totals
         const subtotal = calculations.vehicleCost + calculations.extrasTotal + baseValues.deliveryFee;
         const tax = subtotal * $cda92668d1726448$var$TAX_RATE;
         const total = subtotal + tax;
-        console.log("Final Calculations:", {
-            subtotal: subtotal,
-            tax: tax,
-            total: total,
-            breakdown: {
-                vehicleCost: calculations.vehicleCost,
-                extrasTotal: calculations.extrasTotal,
-                deliveryFee: baseValues.deliveryFee
-            }
-        });
         // Update all displays
         const updates = {
             [$cda92668d1726448$var$SELECTORS.totalExtra]: calculations.extrasTotal,
@@ -465,11 +439,6 @@ const $cda92668d1726448$export$866c2f476e8577f3 = ()=>{
             total: total
         };
     } catch (error) {
-        console.error("Error in calculateTotals:", {
-            message: error.message,
-            stack: error.stack,
-            error: error
-        });
         return {
             subtotal: 0,
             tax: 0,
@@ -535,6 +504,63 @@ const $5cb9d44ada4acc97$export$61b148a19198971a = (newCurrency)=>{
 
 
 
+/**
+ * API Choice Module
+ * Handles country selection functionality using the REST Countries API
+ * @module apiChoice
+ */ /**
+ * Fetches country data from the REST Countries API
+ * @async
+ * @returns {Promise<Array>} Array of country objects, or empty array if fetch fails
+ */ async function $2078167f15fbce25$var$fetchCountries() {
+    const API_URL = "https://restcountries.com/v3.1/all";
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching countries:", error);
+        return [];
+    }
+}
+const $2078167f15fbce25$export$69a74f944023331c = async ()=>{
+    const countrySelect = document.querySelector("#i-country");
+    if (!countrySelect) {
+        console.warn("Country select element not found");
+        return;
+    }
+    try {
+        // Initialize Choices.js dropdown with configuration
+        const choices = new Choices(countrySelect, {
+            searchEnabled: true,
+            searchPlaceholderValue: "Search for a country",
+            placeholder: true,
+            placeholderValue: "Select a country",
+            removeItemButton: true,
+            silent: true
+        });
+        // Fetch and format country data
+        const countries = await $2078167f15fbce25$var$fetchCountries();
+        const formattedChoices = $2078167f15fbce25$var$formatCountryChoices(countries);
+        // Update the dropdown with formatted choices
+        choices.setChoices(formattedChoices, "value", "label", true);
+    } catch (error) {
+        console.error("Error initializing country select:", error);
+    }
+};
+/**
+ * Formats country data for the Choices.js dropdown
+ * @param {Array} countries - Array of country objects from the API
+ * @returns {Array} Formatted array of choice objects
+ */ function $2078167f15fbce25$var$formatCountryChoices(countries) {
+    return countries.sort((a, b)=>a.name.common.localeCompare(b.name.common)).map((country)=>({
+            value: country.cca2,
+            label: country.name.common
+        }));
+}
+
+
 "use strict";
 window.Webflow ||= [];
 window.Webflow.push(()=>{
@@ -544,7 +570,9 @@ window.Webflow.push(()=>{
             if (!form) throw new Error("Booking form not found");
             // Show loading state
             form.classList.add("loading");
-            // Initialize all modules
+            // Initialize country select first
+            await (0, $2078167f15fbce25$export$69a74f944023331c)();
+            // Initialize all other modules
             await Promise.all([
                 (0, $3b8482e534b8b250$export$de01a5d2298a9bfb)(),
                 (0, $45022f0b9d10005e$export$387ed394e6a15885)(),

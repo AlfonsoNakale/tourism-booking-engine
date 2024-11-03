@@ -188,14 +188,10 @@ export const calculateExtrasTotal = () => {
 
 export const initializeExtras = () => {
   EXTRAS.forEach((extra) => {
-    if (!extra.isValid()) {
-      console.warn(`Invalid extra configuration for ${extra.name}`);
-      return;
-    }
+    if (!extra.isValid()) return;
 
     const elements = extra.getElements();
 
-    // Initialize checkbox handler
     elements.checkbox.addEventListener("change", () => {
       if (elements.checkbox.checked) {
         elements.quantity.value = elements.quantity.value || "1";
@@ -203,12 +199,11 @@ export const initializeExtras = () => {
       } else {
         elements.quantity.value = "";
         elements.display.textContent = "-";
-        updateExtrasTotal(); // Update total when unchecking
+        updateExtrasTotal();
       }
       calculateTotals();
     });
 
-    // Initialize quantity handler
     elements.quantity.addEventListener("change", () => {
       if (elements.checkbox.checked) {
         updateExtraCalculation(extra.id);
@@ -217,7 +212,6 @@ export const initializeExtras = () => {
     });
   });
 
-  // Initialize total display
   updateExtrasTotal();
 };
 

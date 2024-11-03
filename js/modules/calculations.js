@@ -20,14 +20,10 @@ const getNumericValue = (
 ) => {
   try {
     const element = document.querySelector(selector);
-    if (!element) {
-      console.warn(`Element not found: ${selector}`);
-      return defaultValue;
-    }
+    if (!element) return defaultValue;
     const value = parseFunc(element?.textContent || defaultValue);
     return isNaN(value) ? defaultValue : value;
   } catch (error) {
-    console.error(`Error getting value from ${selector}:`, error);
     return defaultValue;
   }
 };
@@ -37,14 +33,10 @@ const updateElement = (selector, value) => {
   try {
     const element = document.querySelector(selector);
     if (element) {
-      const formattedValue = value.toFixed(2);
-      element.textContent = formattedValue;
-      console.log(`Updated ${selector}:`, formattedValue);
-    } else {
-      console.warn(`Element not found: ${selector}`);
+      element.textContent = value.toFixed(2);
     }
   } catch (error) {
-    console.error(`Error updating ${selector}:`, error);
+    // Silent error handling
   }
 };
 
@@ -56,14 +48,12 @@ export const calculateTotals = () => {
       duration: getNumericValue(SELECTORS.duration, 0, parseInt),
       deliveryFee: getNumericValue(SELECTORS.deliveryFee),
     };
-    console.log("Base Values:", baseValues);
 
     // Calculate components
     const calculations = {
       extrasTotal: calculateExtrasTotal(),
       vehicleCost: baseValues.vehiclePrice * baseValues.duration,
     };
-    console.log("Initial Calculations:", calculations);
 
     // Calculate totals
     const subtotal =
@@ -72,17 +62,6 @@ export const calculateTotals = () => {
       baseValues.deliveryFee;
     const tax = subtotal * TAX_RATE;
     const total = subtotal + tax;
-
-    console.log("Final Calculations:", {
-      subtotal,
-      tax,
-      total,
-      breakdown: {
-        vehicleCost: calculations.vehicleCost,
-        extrasTotal: calculations.extrasTotal,
-        deliveryFee: baseValues.deliveryFee,
-      },
-    });
 
     // Update all displays
     const updates = {
@@ -99,11 +78,6 @@ export const calculateTotals = () => {
 
     return { subtotal, tax, total };
   } catch (error) {
-    console.error("Error in calculateTotals:", {
-      message: error.message,
-      stack: error.stack,
-      error,
-    });
     return { subtotal: 0, tax: 0, total: 0 };
   }
 };
