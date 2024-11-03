@@ -1,3 +1,5 @@
+import { calculateTotals } from "./calculations";
+
 export const initializeVehicleSelection = () => {
   const vehicleInputs = document.querySelectorAll('input[name="vehicle"]');
 
