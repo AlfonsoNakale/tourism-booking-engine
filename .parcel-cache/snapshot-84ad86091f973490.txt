@@ -152,7 +152,7 @@
 123C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\caniuse-lite\data\features\css-any-link.js133750464653406442 0
 129C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@swc\helpers\cjs\_object_destructuring_empty.cjs133750464656337501 0
 121C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\csso\node_modules\mdn-data\l10n\index.js133750464636394123 0
-80C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\package.json133751938587491833 0
+80C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\package.json133751939592227213 0
 143C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\webpack\node_modules\schema-utils\declarations\util\hints.d.ts133751538166682030 0
 94C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\color-convert133750464637278164 1
 99C:\Users\alfon\Desktop\Work\2024\Cursor apps\tourism-booking-engine\node_modules\@parcel\runtime-js133750464646075416 1
