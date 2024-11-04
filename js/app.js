@@ -18,10 +18,9 @@ const debugModule = (moduleName, element) => {
 };
 
 // Main initialization function
-function initializeApplication() {
+const initializeApplication = () => {
   console.log("Starting application initialization...");
 
-  // Wrap in try-catch for better error handling
   try {
     // Initialize date pickers
     const dateInputs = document.querySelectorAll('input[type="date"]');
@@ -50,19 +49,18 @@ function initializeApplication() {
   } catch (error) {
     console.error("Error during application initialization:", error.message);
   }
-}
+};
 
-// Webflow-specific initialization
-if (window.Webflow) {
-  window.Webflow.push(initializeApplication);
-} else {
-  window.Webflow = [initializeApplication];
-}
+// Self-executing initialization
+(() => {
+  if (typeof window !== "undefined") {
+    if (window.Webflow) {
+      window.Webflow.push(initializeApplication);
+    } else {
+      window.addEventListener("load", initializeApplication);
+    }
+  }
+})();
 
-// Fallback initialization if Webflow is not detected
-if (!window.Webflow) {
-  document.addEventListener("DOMContentLoaded", initializeApplication);
-}
-
-// Export for module usage
-export { initializeApplication };
+// Make sure to export as default
+export default initializeApplication;
