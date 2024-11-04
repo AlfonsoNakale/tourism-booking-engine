@@ -5,7 +5,7 @@ const TAX_RATE = 0.15;
 const SELECTORS = {
   vehiclePrice: "#v-calc-vehicle-price",
   duration: "#v-calc-duration",
-  deliveryFee: "#v-delivery-fee",
+  deliveryFee: "#v-calc-delivery-fee",
   totalExtra: "#v-calc-total-extra",
   tax: "#v-calc-tax",
   subtotal: "#v-calc-subtotal",

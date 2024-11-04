@@ -3,7 +3,7 @@
 import { initializeDatePickers } from "./modules/datePickers";
 import { initializeVehicleSelection } from "./modules/vehicleSelection";
 import { initializeExtras } from "./modules/extras";
-import { initializeCurrencyToggle } from "./modules/currency";
+import { initializeCurrencyToggle } from "./modules/apiExchange.js";
 import { calculateTotals } from "./modules/calculations";
 import { populateCountrySelect } from "./modules/apiChoice";
 
@@ -14,13 +14,10 @@ window.Webflow.push(() => {
       const form = document.querySelector("#booking_form");
       if (!form) throw new Error("Booking form not found");
 
-      // Show loading state
       form.classList.add("loading");
 
-      // Initialize country select first
       await populateCountrySelect();
 
-      // Initialize all other modules
       await Promise.all([
         initializeDatePickers(),
         initializeVehicleSelection(),
@@ -28,13 +25,8 @@ window.Webflow.push(() => {
         initializeCurrencyToggle(),
       ]);
 
-      // Add form submission handler
       handleFormSubmission();
-
-      // Initial calculation
       calculateTotals();
-
-      // Remove loading state
       form.classList.remove("loading");
     } catch (error) {
       console.error("Error initializing booking form:", error);
@@ -54,17 +46,11 @@ window.Webflow.push(() => {
       try {
         form.classList.add("submitting");
 
-        // Validate form
         if (!validateForm(form)) {
           throw new Error("Please fill in all required fields");
         }
 
-        // Get form data
         const formData = new FormData(form);
-
-        // Add your form submission logic here
-        // await submitForm(formData);
-
         showSuccess("Booking submitted successfully!");
       } catch (error) {
         console.error("Form submission error:", error);
@@ -76,7 +62,6 @@ window.Webflow.push(() => {
   };
 
   const validateForm = (form) => {
-    // Add your validation logic here
     return true;
   };
 
@@ -98,6 +83,5 @@ window.Webflow.push(() => {
     }
   };
 
-  // Call initialization
   initializeBookingForm();
 });

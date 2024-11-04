@@ -7,7 +7,7 @@ function initializePickupLocation() {
   const pickupConfirmation = document.querySelector("#pickup-confirmation");
   const pickupLocation = document.querySelector("#i-pickup-location");
   const returnLocation = document.querySelector("#i-return-location");
-  const deliveryFeeElement = document.querySelector("#v-delivery-fee");
+  const deliveryFeeElement = document.querySelector("#v-calc-delivery-fee");
   const vPickupLocation = document.querySelector("#v-pickup-location");
   const vReturnLocation = document.querySelector("#v-return-location");
 
