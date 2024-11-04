@@ -1,6 +1,13 @@
 "use strict";
 
-// Add to the top of app.js
+// Import all required modules
+import { populateCountrySelect } from "./modules/apiChoice.js";
+import { initializeVehicleSelection } from "./modules/vehicleSelection.js";
+import { initializeExtras } from "./modules/extras.js";
+import { initializeDatePickers } from "./modules/datePickers.js";
+import { initializeCurrencyToggle } from "./modules/apiExchange.js";
+
+// Debug helper function
 const debugModule = (moduleName, element) => {
   if (!element) {
     console.warn(`${moduleName}: Required DOM elements not found`);
@@ -10,66 +17,49 @@ const debugModule = (moduleName, element) => {
   return true;
 };
 
-// Import all required modules
-import { populateCountrySelect } from "./modules/apiChoice.js";
-import { initializeVehicleSelection } from "./modules/vehicleSelection.js";
-import { initializeExtras } from "./modules/extras.js";
-import { initializeDatePickers } from "./modules/datePickers.js";
-import { initializeCurrencyToggle } from "./modules/apiExchange.js";
-
-// Wait for Webflow to initialize
-window.Webflow || [];
-window.Webflow.push(function () {
-  console.log("Webflow initialized, starting application...");
-
-  // Initialize modules after a short delay to ensure DOM is ready
-  setTimeout(() => {
-    initializeApplication();
-  }, 100);
-});
-
+// Main initialization function
 function initializeApplication() {
-  try {
-    // Debug initialization of each component
-    console.log("Initializing components...");
+  console.log("Starting application initialization...");
 
+  // Wrap in try-catch for better error handling
+  try {
     // Initialize date pickers
     const dateInputs = document.querySelectorAll('input[type="date"]');
-    if (dateInputs.length > 0) {
+    debugModule("Date Pickers", dateInputs.length > 0) &&
       initializeDatePickers();
-      console.log("Date pickers initialized");
-    }
 
     // Initialize vehicle selection
     const vehicleInputs = document.querySelectorAll('input[name="vehicle"]');
-    if (vehicleInputs.length > 0) {
+    debugModule("Vehicle Selection", vehicleInputs.length > 0) &&
       initializeVehicleSelection();
-      console.log("Vehicle selection initialized");
-    }
 
     // Initialize extras
     const extrasContainer = document.querySelector(".extras-container");
-    if (extrasContainer) {
-      initializeExtras();
-      console.log("Extras initialized");
-    }
+    debugModule("Extras", extrasContainer) && initializeExtras();
 
     // Initialize country select
     const countrySelect = document.querySelector("#i-country");
-    if (countrySelect) {
-      populateCountrySelect();
-      console.log("Country select initialized");
-    }
+    debugModule("Country Select", countrySelect) && populateCountrySelect();
 
     // Initialize currency toggle
     const currencyToggle = document.querySelector('[name="currency-group"]');
-    if (currencyToggle) {
+    debugModule("Currency Toggle", currencyToggle) &&
       initializeCurrencyToggle();
-      console.log("Currency toggle initialized");
-    }
 
     console.log("Application initialization complete");
   } catch (error) {
-    console.error("Error during application initialization:", error);
+    console.error("Error during application initialization:", error.message);
   }
 }
+
+// Ensure the DOM is fully loaded before initializing
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded");
+  initializeApplication();
+});
+
+// Also handle Webflow initialization if needed
+window.Webflow?.push(() => {
+  console.log("Webflow initialized");
+  initializeApplication();
+});
