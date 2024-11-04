@@ -52,14 +52,17 @@ function initializeApplication() {
   }
 }
 
-// Ensure the DOM is fully loaded before initializing
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded");
-  initializeApplication();
-});
+// Webflow-specific initialization
+if (window.Webflow) {
+  window.Webflow.push(initializeApplication);
+} else {
+  window.Webflow = [initializeApplication];
+}
 
-// Also handle Webflow initialization if needed
-window.Webflow?.push(() => {
-  console.log("Webflow initialized");
-  initializeApplication();
-});
+// Fallback initialization if Webflow is not detected
+if (!window.Webflow) {
+  document.addEventListener("DOMContentLoaded", initializeApplication);
+}
+
+// Export for module usage
+export { initializeApplication };
