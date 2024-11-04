@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist .parcel-cache",
-    "start": "parcel serve js/app.js",
-    "build": "parcel build js/app.js",
+    "start": "parcel serve index.html",
+    "build": "parcel build index.html",
     "lint": "eslint js/",
     "format": "prettier --write \"js/**/*.{js,jsx}\""
   },

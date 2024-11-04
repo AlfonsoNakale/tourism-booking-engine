@@ -31,13 +31,13 @@ async function fetchCountries() {
  * @exports populateCountrySelect
  */
 export const populateCountrySelect = async () => {
-  const countrySelect = document.querySelector("#i-country");
-  if (!countrySelect) {
-    console.warn("Country select element not found");
-    return;
-  }
-
   try {
+    const countrySelect = document.querySelector("#i-country");
+    if (!countrySelect) {
+      console.warn("Country select element not found");
+      return;
+    }
+
     // Initialize Choices.js dropdown with configuration
     const choices = new Choices(countrySelect, {
       searchEnabled: true,
@@ -55,7 +55,7 @@ export const populateCountrySelect = async () => {
     // Update the dropdown with formatted choices
     choices.setChoices(formattedChoices, "value", "label", true);
   } catch (error) {
-    console.error("Error initializing country select:", error);
+    console.error("Error in populateCountrySelect:", error);
   }
 };
 
