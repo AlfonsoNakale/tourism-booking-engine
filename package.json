@@ -2,12 +2,13 @@
   "name": "tourism-booking-engine",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist .parcel-cache",
-    "start": "parcel serve js/app.js ",
-    "build": "parcel build js/app.js --dist-dir dist"
+    "start": "parcel serve index.html",
+    "build": "parcel build index.html",
+    "lint": "eslint js/",
+    "format": "prettier --write \"js/**/*.{js,jsx}\""
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,8 @@
     "babel-loader": "^9.2.1",
     "lodash": "^4.17.21",
     "parcel": "^2.12.0",
-    "parcel-reporter-static-files-copy": "^1.5.3"
+    "parcel-reporter-static-files-copy": "^1.5.3",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
   }
 }
