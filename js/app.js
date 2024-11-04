@@ -17,26 +17,59 @@ import { initializeExtras } from "./modules/extras.js";
 import { initializeDatePickers } from "./modules/datePickers.js";
 import { initializeCurrencyToggle } from "./modules/apiExchange.js";
 
-// Initialize your application
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Application initializing...");
+// Wait for Webflow to initialize
+window.Webflow || [];
+window.Webflow.push(function () {
+  console.log("Webflow initialized, starting application...");
 
-  try {
-    // Debug each module initialization
-    const countrySelect = document.querySelector("#i-country");
-    if (debugModule("Country Select", countrySelect)) {
-      populateCountrySelect();
-    }
-
-    const vehicleInputs = document.querySelectorAll('input[name="vehicle"]');
-    if (debugModule("Vehicle Selection", vehicleInputs.length > 0)) {
-      initializeVehicleSelection();
-    }
-
-    // ... similar debug checks for other modules
-
-    console.log("Application initialized successfully");
-  } catch (error) {
-    console.error("Error initializing application:", error);
-  }
+  // Initialize modules after a short delay to ensure DOM is ready
+  setTimeout(() => {
+    initializeApplication();
+  }, 100);
 });
+
+function initializeApplication() {
+  try {
+    // Debug initialization of each component
+    console.log("Initializing components...");
+
+    // Initialize date pickers
+    const dateInputs = document.querySelectorAll('input[type="date"]');
+    if (dateInputs.length > 0) {
+      initializeDatePickers();
+      console.log("Date pickers initialized");
+    }
+
+    // Initialize vehicle selection
+    const vehicleInputs = document.querySelectorAll('input[name="vehicle"]');
+    if (vehicleInputs.length > 0) {
+      initializeVehicleSelection();
+      console.log("Vehicle selection initialized");
+    }
+
+    // Initialize extras
+    const extrasContainer = document.querySelector(".extras-container");
+    if (extrasContainer) {
+      initializeExtras();
+      console.log("Extras initialized");
+    }
+
+    // Initialize country select
+    const countrySelect = document.querySelector("#i-country");
+    if (countrySelect) {
+      populateCountrySelect();
+      console.log("Country select initialized");
+    }
+
+    // Initialize currency toggle
+    const currencyToggle = document.querySelector('[name="currency-group"]');
+    if (currencyToggle) {
+      initializeCurrencyToggle();
+      console.log("Currency toggle initialized");
+    }
+
+    console.log("Application initialization complete");
+  } catch (error) {
+    console.error("Error during application initialization:", error);
+  }
+}
