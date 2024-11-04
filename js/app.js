@@ -1,12 +1,14 @@
 "use strict";
 
-import { initializeDatePickers } from "./modules/datePickers";
-import { initializeVehicleSelection } from "./modules/vehicleSelection";
-import { initializeExtras } from "./modules/extras";
+// Import dependencies using ESM syntax
+import { initializeDatePickers } from "./modules/datePickers.js";
+import { initializeVehicleSelection } from "./modules/vehicleSelection.js";
+import { initializeExtras } from "./modules/extras.js";
 import { initializeCurrencyToggle } from "./modules/apiExchange.js";
-import { calculateTotals } from "./modules/calculations";
-import { populateCountrySelect } from "./modules/apiChoice";
+import { calculateTotals } from "./modules/calculations.js";
+import { populateCountrySelect } from "./modules/apiChoice.js";
 
+// Initialize Webflow
 window.Webflow ||= [];
 window.Webflow.push(() => {
   const initializeBookingForm = async () => {

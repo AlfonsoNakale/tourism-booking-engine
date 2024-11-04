@@ -750,6 +750,7 @@ const $2078167f15fbce25$export$69a74f944023331c = async ()=>{
 
 
 "use strict";
+// Initialize Webflow
 window.Webflow ||= [];
 window.Webflow.push(()=>{
     const initializeBookingForm = async ()=>{
